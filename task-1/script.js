@@ -43,7 +43,7 @@ function inputHandler(condition) {
   if (!condition) {
     if (!userEmail.value || !userName.value) {
       inputLog(false);
-      display.style.color = "red";
+      display.style.color = "rgb(255, 65, 65)";
       display.textContent = "PLEASE INPUT BOTH FIELDS";
     } else {
       display.textContent = "";
@@ -58,7 +58,7 @@ function inputHandler(condition) {
     }
   } else {
     checkLoadIfExist();
-    display.style.color = "green";
+    display.style.color = "rgb(173, 255, 47)";
     display.textContent = "YOU ARE ALREADY REGISTERED";
     console.clear();
     console.log(
@@ -93,7 +93,7 @@ function inputLog(condition) {
   } else {
     console.log(
       "%cNOT SUBMITED",
-      "color: red; font-weight: 700; font-size: 16px;"
+      "color: rgb(255, 65, 65); font-weight: 700; font-size: 16px;"
     );
     console.log(
       `%cname is - ${user.name}, email is - ${user.email}`,

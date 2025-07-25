@@ -60,12 +60,12 @@ input::placeholder {
   display: flex;
   justify-content: center;
   align-items: center;
-  color: red;
   text-align: center;
 
   font-size: 16px;
   font-weight: 600;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  border: unset;
 }
 
 .button {
