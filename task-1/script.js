@@ -1,9 +1,9 @@
-let AGFT = document.getElementById("agft");
+let form = document.getElementById("form");
 let userName = document.getElementById("name");
 let userEmail = document.getElementById("email");
 let display = document.getElementById("display");
 let storageReset = document.getElementById("clear");
-let dataExist;
+let dataExist = false;
 let user = {};
 
 window.onload = () => {
@@ -16,7 +16,10 @@ document.addEventListener("submit", (submit) => {
 });
 
 storageReset.addEventListener("click", () => {
-  localStorage.clear();
+  localStorage.removeItem("userData");
+  console.clear();
+  user = {};
+  checkLoadIfExist();
 });
 
 function checkLoadIfExist() {
@@ -25,7 +28,12 @@ function checkLoadIfExist() {
   if (userFromStorage) {
     dataExist = true;
     user = userFromStorage;
-    console.log(user);
+    console.log(
+      "%cHI YOU'RE ALREADY SUBMITED\nBELOW IS YOUR DATA",
+      "color: green; font-weight: 700; font-size: 16px;"
+    );
+    console.table(user);
+    form.reset();
   } else {
     dataExist = false;
   }
@@ -44,23 +52,35 @@ function inputHandler(condition) {
         email: userEmail.value,
       };
       storageSaver(user);
-      AGFT.reset();
+      form.reset();
       inputLog(true);
       user = {};
     }
   } else {
+    checkLoadIfExist();
     display.style.color = "green";
     display.textContent = "YOU ARE ALREADY REGISTERED";
+    console.clear();
+    console.log(
+      "%cYOU'RE ALREADY SUBMITED",
+      "color: green; font-weight: 700; font-size: 16px;"
+    );
+    console.log(
+      `%cname is - ${user.name}, email is - ${user.email}`,
+      "font-weigth: 600; font-size: 12px; color: white;"
+    );
   }
 }
 
 function storageSaver(user) {
   let userJson = JSON.stringify(user, null, 2);
   localStorage.setItem("userData", userJson);
+  dataExist = true;
 }
 
 function inputLog(condition) {
   console.clear();
+
   if (condition) {
     console.log(
       "%cSUBMITED, USER DATA SAVED IN STORAGE",
