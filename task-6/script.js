@@ -3,6 +3,7 @@ let smartButton = document.getElementById("smartButton");
 let dumpButton = document.getElementById("dumpButton");
 let nukeButton = document.getElementById("nukeButton");
 let rebornButton = document.getElementById("rebornButton");
+let alive = true;
 
 let page = document.getElementById("page");
 
@@ -19,22 +20,38 @@ nukeButton.addEventListener("click", () => {
 });
 
 rebornButton.addEventListener("click", () => {
-  secondLife();
+  reborn();
+});
+
+document.addEventListener("keydown", () => {
+  reborn();
 });
 
 function death() {
-  display.textContent = "you died";
-  page.style.backgroundColor = "red";
+  alive = false;
   rebornButton.style.display = "flex";
+  display.style.display = "none";
+  page.style.backgroundImage =
+    "url(https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExNjE2N2puZXJjeDYzYzFlOG1ldXFoNnlkN255b3oyOGp3ZmY3OXF2MyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/h5NLPVn3rg0Rq/giphy.gif)";
+  page.style.backgroundPosition = "center center";
+  page.style.backgroundSize = "cover";
   smartButton.style.display = "none";
   dumpButton.style.display = "none";
   nukeButton.style.display = "none";
+  console.log("%cDIED", "color:red; font-size:30px;");
+  console.log("%cyou can reborn", "font-size: 7px;");
 }
 
-function secondLife() {
+function reborn() {
+  if (alive) {
+    return;
+  }
+  alive = true;
+  console.clear;
+  display.style.display = "flex";
   rebornButton.style.display = "none";
   display.textContent = "PRESS TO START";
-  page.style.backgroundColor = "white";
+  page.style.backgroundImage = "none";
   smartButton.style.display = "flex";
   dumpButton.style.display = "flex";
   nukeButton.style.display = "flex";

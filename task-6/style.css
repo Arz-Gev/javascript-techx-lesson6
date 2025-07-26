@@ -48,11 +48,13 @@ body {
 }
 
 #rebornButton {
-  background-color: green;
-  color: white;
-  display: none;
+  cursor: pointer;
   justify-content: center;
+  text-align: center;
   align-items: center;
+  display: none;
+  background-color: transparent;
+  border: none;
 }
 
 #rebornButton:active {
