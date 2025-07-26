@@ -1,4 +1,3 @@
-let base = new Date();
 let cookieName = "consent";
 let cookieBanner = document.getElementById("cookieBody");
 let cookieCreate = document.getElementById("cookie-button");
