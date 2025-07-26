@@ -1,20 +1,22 @@
-* {
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
   margin: 0 0;
   padding: 0 0;
-  box-sizing: border-box;
 }
 
 html {
-  font-size: 16px;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 16px;
 }
 
 body {
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
   align-items: center;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  width: 100%;
 }
 
 p {
@@ -27,49 +29,62 @@ p {
 }
 
 .page {
-  width: 70%;
   height: 90%;
+  width: 70%;
 }
 
-.coockie {
-  width: clamp(2rem, 18%, 70rem);
-  height: clamp(2rem, 16%, 60rem);
-  border-radius: 1vw;
-  left: 15%;
-  bottom: 7%;
-  position: fixed;
-}
-
-.coockie-background {
-  background-color: black;
-  filter: opacity(0.75);
-  z-index: 2;
-}
-
-.coockie-body {
-  color: white;
-  display: flex;
-  justify-content: space-evenly;
+.cookie-body {
   align-items: center;
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 1vw;
+  bottom: 7%;
+  color: white;
+  display: none;
   flex-wrap: wrap;
-  z-index: 3;
+  height: clamp(2rem, 16%, 60rem);
+  justify-content: space-evenly;
+  left: 15%;
   padding: 0.5vw 0.5vw;
+  position: fixed;
+  width: clamp(min(26rem, 70%), 18%, 80rem);
 }
 
-.coockie-body p {
+.cookie-body p {
+  font-size: clamp(1.5rem, 1vw, 10rem);
+  text-align: center;
   width: 100%;
-  font-size: clamp(0.25rem, 1.25vw, 6rem);
 }
 
-.coockie-body button {
+.cookie-body button {
   border: 0;
-  cursor: pointer;
-  font-size: clamp(0.25rem, 1vw, 6rem);
   border-radius: 0.5vw;
-  width: 25%;
+  cursor: pointer;
+  font-size: clamp(1.5rem, 1vw, 10rem);
   height: 25%;
+  width: clamp(max(25%, 5.5rem), 25%, 25%);
 }
 
-.coockie-body button:active {
+.cookie-body button:active {
   background-color: grey;
+}
+
+.cookie-delete-button {
+  align-items: start;
+  border: 1px solid black;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: clamp(1.5rem, 1vw, 10rem);
+  height: max-content;
+  margin: 2rem calc(50% - calc(clamp(max(5%, 5.5rem), 7%, 25%) / 2));
+  width: clamp(max(5%, 7rem), 7%, 25%);
+}
+
+.cookie-delete-button:active {
+  background-color: grey;
+}
+
+.gif {
+  width: min(100%, 33rem);
+  float: right;
+  padding: 0 2rem 2rem 2rem;
 }

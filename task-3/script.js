@@ -1,22 +1,35 @@
-let coockieName = "consent";
+let base = new Date();
+let cookieName = "consent";
+let cookieBanner = document.getElementById("cookieBody");
+let cookieCreate = document.getElementById("cookie-button");
+let cookieDelete = document.getElementById("anticookie-button");
 
-window.onload = () => {
-  let banner = document.querySelectorAll(".coockie");
-  let createButton = document.getElementById("coockie-button");
-  let deleteButton = document.getElementById("anticoockie-button");
-  if (document.coockie) {
-    banner.forEach((el) => (el.style.display = "none"));
+cookieBanerStateUpdate();
+
+function cookieBanerStateUpdate() {
+  if (!document.cookie) {
+    cookieBanner.style.display = "flex";
   } else {
-    banner.forEach((el) => (el.style.display = "flex"));
+    cookieBanner.style.display = "none";
   }
-};
+}
 
-function setCoockie(name) {
+cookieCreate.addEventListener("click", () => {
+  setCookie(cookieName);
+  cookieBanerStateUpdate();
+});
+
+cookieDelete.addEventListener("click", () => {
+  deleteCookie(cookieName);
+  cookieBanerStateUpdate();
+});
+
+function setCookie(name) {
   const expiry = new Date();
   expiry.setDate(expiry.getDate() + 7);
   document.cookie = `${name}=true; expires=${expiry.toUTCString()}; path=/task-3;`;
 }
 
-function deleteCoockie(name) {
+function deleteCookie(name) {
   document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/task-3;`;
 }
