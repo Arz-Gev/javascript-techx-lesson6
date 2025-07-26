@@ -22,7 +22,7 @@ body {
 
 form {
   align-items: center;
-  background-color: azure;
+  background-color: rgba(0, 0, 255, 0.9);
   display: flex;
   flex-direction: column;
   height: 25rem;
@@ -31,14 +31,14 @@ form {
 }
 
 label {
-  border-color: azure;
-  color: grey;
+  border: none;
+  color: white;
   margin-top: 2rem;
   padding: 0.5rem 2rem;
 }
 
 input {
-  background-color: rgb(187, 187, 241);
+  background-color: rgb(75, 75, 247);
   height: 3rem;
   margin-bottom: 2rem;
   text-align: center;
@@ -69,7 +69,7 @@ input::placeholder {
 }
 
 .button {
-  background-color: rgb(187, 187, 241);
+  background-color: rgb(75, 75, 247);
   border-radius: 7px;
   border-width: 3px;
   cursor: pointer;
@@ -80,6 +80,6 @@ input::placeholder {
 
 button:active {
   background-color: white;
-  color: rgb(143, 143, 238);
+  color: rgb(75, 75, 247);
   font-weight: 700;
 }
