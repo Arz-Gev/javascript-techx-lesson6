@@ -1,0 +1,124 @@
+* {
+  box-sizing: border-box;
+  margin: 0 0;
+  padding: 0 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+:root {
+  --small: #03045e 18%, transparent 19%;
+  --big: #00b4d8 36%, transparent 38%;
+}
+
+html,
+body {
+  height: 100vh;
+  width: 100vw;
+  /* background: linear-gradient(90deg, black, white); */
+  background-image: url(nextimg.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#UI {
+  background: rgba(255, 255, 255, 0.02); /*--- REFRACTION --- */
+  backdrop-filter: blur(8px); /*--- BLUR ---*/
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.1),
+    inset 0 0 2px 1px rgba(255, 255, 255, 0.1); /* --- DEPTH --- */
+  overflow: hidden;
+
+  /* _______________________ */
+  width: 25rem;
+  height: 18rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 2rem;
+  position: fixed;
+  z-index: 2;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1.3);
+}
+
+#UI::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(121, 121, 121, 0.8),
+    transparent
+  );
+}
+
+#UI::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1px;
+  height: 100%;
+  background: linear-gradient(
+    180deg,
+    rgba(134, 134, 134, 0.8),
+    transparent,
+    rgba(255, 255, 255, 0.3)
+  );
+}
+
+#get-joke {
+  cursor: pointer;
+  width: 6rem;
+  height: 2rem;
+  border-radius: 10px;
+  border: none;
+  font-weight: 600;
+  color: white;
+  background-color: transparent;
+  box-shadow: inset 1px 1px 2px 0 rgba(255, 255, 255, 0.7),
+    2px 2px 4px 0 rgba(0, 0, 0, 0.5);
+}
+
+#get-joke:active {
+  box-shadow: inset 1px 1px 2px 0 rgba(0, 0, 0, 0.5);
+  color: black;
+}
+
+#display {
+  padding: 0.5rem 0.75rem;
+  color: white;
+  overflow: auto;
+  font-weight: 600;
+  border-radius: 10px;
+  width: 21rem;
+  height: 9rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: inset 1px 1px 2px 0 rgba(255, 255, 255, 0.5),
+    2px 2px 4px 0 rgba(0, 0, 0, 0.5);
+  text-align: center;
+}
+
+/* .boll {
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(circle at left top, var(--small)),
+    radial-gradient(circle at bottom right, var(--small)),
+    radial-gradient(circle at bottom left, var(--small)),
+    radial-gradient(circle at top right, var(--small)),
+    radial-gradient(circle at center, var(--big));
+  background-size: calc(100% / 16) calc(100% / 9);
+  background-repeat: repeat;
+} */
