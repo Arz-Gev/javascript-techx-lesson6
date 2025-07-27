@@ -32,3 +32,7 @@ function Ticker(shouldWork) {
     display.textContent = "PRESS TO START";
   }
 }
+
+function callColorInverse() {
+  document.querySelector("");
+}
