@@ -7,6 +7,7 @@
   justify-content: center;
   align-items: center;
   text-align: center;
+  z-index: 3;
 }
 
 html,
@@ -24,10 +25,12 @@ body {
 
 #display {
   display: flex;
-  width: 5rem;
-  height: 5rem;
+  width: 6rem;
+  height: 6rem;
+  border-radius: 15px;
   font-weight: 800;
   font-size: 1.25rem;
+  background-color: white;
 }
 
 .button {
@@ -35,12 +38,83 @@ body {
   height: 2rem;
   width: 5rem;
   border-radius: 10px;
-  border: 3px solid black;
+  border: solid 0;
   display: flex;
+  font-size: 1.3rem;
+  font-weight: 700;
 }
 
 .button:active {
+  transform-origin: center;
+  transform: scale(0.97);
+}
+
+.bigbox {
+  width: 14rem;
+  height: 20rem;
+  clip-path: polygon(
+    50% 0,
+    43% 1%,
+    36% 4%,
+    31% 8%,
+    28% 14%,
+    28% 22%,
+    30% 28%,
+    45% 94%,
+    47% 97%,
+    50% 98%,
+    53% 97%,
+    55% 94%,
+    70% 28%,
+    72% 22%,
+    72% 14%,
+    69% 8%,
+    64% 4%,
+    57% 1%,
+    50% 0
+  );
+  display: none;
   background-color: black;
-  color: white;
-  font-size: 1.1rem;
+  position: fixed;
+  left: 0vw;
+  bottom: 0vh;
+  z-index: 1;
+}
+
+.box-1 {
+  position: fixed;
+  left: 20vw;
+  bottom: 0vh;
+}
+.box-2 {
+  position: fixed;
+  left: 30vw;
+  bottom: 0vh;
+}
+.box-1 {
+  position: fixed;
+  left: 20vw;
+  bottom: 0vh;
+}
+.box-2 {
+  position: fixed;
+  left: 30vw;
+  bottom: 0vh;
+}
+
+.box-3 {
+  position: fixed;
+  left: 10vw;
+  bottom: 0vh;
+}
+
+.box-4 {
+  position: fixed;
+  left: 40vw;
+  bottom: 0vh;
+}
+.box-5 {
+  position: fixed;
+  left: 50vw;
+  bottom: 0vh;
 }
