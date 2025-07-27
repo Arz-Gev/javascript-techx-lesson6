@@ -22,14 +22,15 @@ start.addEventListener("click", () => Ticker(true));
 
 end.addEventListener("click", () => Ticker(false));
 
-// document.addEventListener("keydown", () => {
-//   ticking ? Ticker(false) : Ticker(true);
-// });
+document.addEventListener("keydown", () => {
+  ticking ? Ticker(false) : Ticker(true);
+});
 
 function Ticker(shouldWork) {
   if (firstCall) {
     t = Date.now();
   }
+
   if (shouldWork) {
     if (ticking) {
       console.log("you can't start again whiel it already work", time(t));
