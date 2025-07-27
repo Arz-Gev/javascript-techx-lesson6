@@ -1,8 +1,10 @@
+let body = document.getElementById("body");
+let box = document.querySelectorAll("#fast");
 let start = document.getElementById("start");
 let end = document.getElementById("end");
 let display = document.getElementById("display");
-let fastBox = document.querySelectorAll("#fast");
-let body = document.querySelector("body");
+let fastBox = document.getElementById("fast");
+
 let ticking = false;
 let tick = false;
 let firstCall = true;
@@ -12,15 +14,17 @@ let whenStarted;
 let color1;
 let color2;
 let color = true;
-let px;
+
+let Left;
+let Top;
 
 start.addEventListener("click", () => Ticker(true));
 
 end.addEventListener("click", () => Ticker(false));
 
-document.addEventListener("keydown", () => {
-  ticking ? Ticker(false) : Ticker(true);
-});
+// document.addEventListener("keydown", () => {
+//   ticking ? Ticker(false) : Ticker(true);
+// });
 
 function Ticker(shouldWork) {
   if (firstCall) {
@@ -44,7 +48,7 @@ function Ticker(shouldWork) {
       }
       display.textContent = "T I C K";
       tick = true;
-    }, 700);
+    }, 1000);
   } else {
     console.log("ended ticking", time(t));
     ticking = false;
@@ -71,7 +75,7 @@ function callColorInverse() {
   start.style.color = color1;
   end.style.backgroundColor = color2;
   end.style.color = color1;
-  fastBox.forEach((element) => {
+  box.forEach((element) => {
     element.style.backgroundColor = color1;
   });
 }
@@ -82,28 +86,29 @@ function time(t) {
 
 function animation(work) {
   if (!work) {
-    fastBox.forEach((element) => {
-      element.style.display = "none";
-    });
-    return clearInterval(animatedBackground);
+    clearInterval(animatedBackground);
+    return;
   }
   animatedBackground = setInterval(() => {
-    fastBox.forEach((element) => {
-      element.style.display = "flex";
-    });
-    let info = body.getBoundingClientRect();
-    if (!px) {
-      px = 1;
-    }
-    if (px > info.width) {
-      px = 0;
-    }
-    px = px + 20;
+    box.forEach((element) => {
+      let bodyInfo = body.getBoundingClientRect();
+      let widthStep = bodyInfo.width / 80;
+      let heightStep = bodyInfo.height / 80;
+      let boxInfo = element.getBoundingClientRect();
 
-    fastBox.forEach((element) => {
-      element.style.transform = `translate(${px}px,${
-        (px - px * 2) / 1.7
-      }px) rotate(56deg)`;
+      if (boxInfo.left > bodyInfo.width) {
+        Left = Math.floor(Math.random() * boxInfo.width);
+      } else {
+        Left = boxInfo.left + widthStep;
+      }
+      if (boxInfo.top <= 0) {
+        Top = bodyInfo.height;
+      } else {
+        Top = boxInfo.top - heightStep;
+      }
+
+      element.style.left = `${Left}px`;
+      element.style.top = `${Top}px`;
     });
-  }, 10);
+  }, 15);
 }

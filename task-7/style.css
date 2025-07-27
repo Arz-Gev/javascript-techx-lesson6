@@ -50,71 +50,45 @@ body {
 }
 
 .bigbox {
-  width: 14rem;
-  height: 20rem;
+  width: 7vw;
+  aspect-ratio: 1/1;
+  height: auto;
   clip-path: polygon(
-    50% 0,
-    43% 1%,
-    36% 4%,
-    31% 8%,
-    28% 14%,
-    28% 22%,
-    30% 28%,
-    45% 94%,
-    47% 97%,
-    50% 98%,
-    53% 97%,
-    55% 94%,
-    70% 28%,
-    72% 22%,
-    72% 14%,
-    69% 8%,
-    64% 4%,
-    57% 1%,
-    50% 0
+    0% 100%,
+    59% 19%,
+    73% 7%,
+    85% 0,
+    98% 2%,
+    100% 13%,
+    94% 25%,
+    81% 38%
   );
-  display: none;
-  background-color: black;
   position: fixed;
-  left: 0vw;
-  bottom: 0vh;
   z-index: 1;
+  display: flex;
 }
 
 .box-1 {
-  position: fixed;
-  left: 20vw;
-  bottom: 0vh;
+  left: 10%;
+  top: 15%;
 }
+
 .box-2 {
-  position: fixed;
-  left: 30vw;
-  bottom: 0vh;
-}
-.box-1 {
-  position: fixed;
-  left: 20vw;
-  bottom: 0vh;
-}
-.box-2 {
-  position: fixed;
-  left: 30vw;
-  bottom: 0vh;
+  left: 20%;
+  top: 70%;
 }
 
 .box-3 {
-  position: fixed;
-  left: 10vw;
-  bottom: 0vh;
+  left: 56%;
+  top: 23%;
 }
 
 .box-4 {
-  position: fixed;
-  left: 40vw;
-  bottom: 0vh;
+  left: 59%;
+  top: 80%;
 }
+
 .box-5 {
-  position: fixed;
-  left: 50vw;
-  bottom: 0vh;
+  left: 87%;
+  top: 33%;
 }
