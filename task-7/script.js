@@ -93,8 +93,8 @@ function animation(work) {
   animatedBackground = setInterval(() => {
     box.forEach((element) => {
       let bodyInfo = body.getBoundingClientRect();
-      let widthStep = bodyInfo.width / 80;
-      let heightStep = bodyInfo.height / 80;
+      let widthStep = bodyInfo.width / 60;
+      let heightStep = bodyInfo.height / 60;
       let boxInfo = element.getBoundingClientRect();
 
       if (boxInfo.left > bodyInfo.width) {
@@ -102,7 +102,7 @@ function animation(work) {
       } else {
         Left = boxInfo.left + widthStep;
       }
-      if (boxInfo.top <= 0) {
+      if (boxInfo.top <= -100) {
         Top = bodyInfo.height;
       } else {
         Top = boxInfo.top - heightStep;
@@ -111,5 +111,5 @@ function animation(work) {
       element.style.left = `${Left}px`;
       element.style.top = `${Top}px`;
     });
-  }, 15);
+  }, 1000 / 60);
 }
