@@ -63,9 +63,9 @@ function callingNuke(nuke) {
       death();
       return;
     }
-    display.textContent = nuke;
-    console.log(nuke, " steps closer to death");
-    callingNuke(nuke * nuke);
+    display.textContent = BigInt(nuke);
+    console.log(BigInt(nuke), " steps closer to death");
+    callingNuke(Math.round(nuke ** 1.5));
   }, 200);
 }
 
