@@ -1,0 +1,38 @@
+* {
+  box-sizing: border-box;
+  margin: 0 0;
+  padding: 0 0;
+}
+
+html {
+  height: 100%;
+  font-size: 16px;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  row-gap: clamp(1rem, 10%, 100%);
+  width: 100%;
+  height: 100%;
+}
+
+.button {
+  width: clamp(min(10rem, 80%), max(6rem, 30vw), max(6rem, 80vw));
+  height: auto;
+  aspect-ratio: 4/2;
+  font-size: clamp(min(18vw, 1.25rem), 7vw, 100vw);
+  border: black clamp(0.25rem, 1vw, 100vw) solid;
+  border-radius: clamp(1rem, 3vw, 100vw);
+  background-color: white;
+  color: black;
+  font-weight: 600;
+}
+
+.button:active {
+  background-color: black;
+  color: white;
+  font-weight: 700;
+}

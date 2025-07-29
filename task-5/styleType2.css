@@ -6,8 +6,13 @@
 }
 
 :root {
-  --small: #03045e 18%, transparent 19%;
-  --big: #00b4d8 36%, transparent 38%;
+  --ballCollor1: black;
+  --ballCollor2: white;
+  --textCollor: rgb(255, 255, 255);
+  --backgroundCollor: rgb(54, 136, 218);
+
+  --smalltransparant: transparent 19%;
+  --bigtransparant: transparent 38%;
 }
 
 html,
@@ -15,20 +20,21 @@ body {
   height: 100vh;
   width: 100vw;
   /* background: linear-gradient(90deg, black, white); */
-  background-image: url(nextimg.png);
+  /* background-image: url(nextimg.png);
   background-repeat: no-repeat;
-  background-size: cover;
+  /* background-size: cover; */
+  background-color: var(--backgroundCollor);
 }
 
 #UI {
-  background: rgba(255, 255, 255, 0.02); /*--- REFRACTION --- */
-  backdrop-filter: blur(8px); /*--- BLUR ---*/
+  background: rgba(255, 255, 255, 0.01); /*--- REFRACTION --- */
+  backdrop-filter: blur(6px); /*--- BLUR ---*/
   border-radius: 20px;
   border: 1px solid rgba(255, 255, 255, 0.2);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1),
-    inset 0 1px 0 rgba(255, 255, 255, 0.5),
-    inset 0 -1px 0 rgba(255, 255, 255, 0.1),
-    inset 0 0 2px 1px rgba(255, 255, 255, 0.1); /* --- DEPTH --- */
+    inset 0 2px 0 rgba(255, 255, 255, 0.5),
+    inset 0 -2px 0 rgba(255, 255, 255, 0.1),
+    inset 0 0 2px 2px rgba(255, 255, 255, 1); /* --- DEPTH --- */
   overflow: hidden;
 
   /* _______________________ */
@@ -84,41 +90,63 @@ body {
   border-radius: 10px;
   border: none;
   font-weight: 600;
-  color: white;
-  background-color: transparent;
-  box-shadow: inset 1px 1px 2px 0 rgba(255, 255, 255, 0.7),
-    2px 2px 4px 0 rgba(0, 0, 0, 0.5);
+  color: var(--textCollor);
+  background: rgba(0, 0, 0, 0.2);
+  border: solid 1px white;
+  box-shadow: inset 1px 1px 2px 0 rgba(255, 255, 255, 0.3),
+    1px 1px 2px 0 rgba(0, 0, 0, 0.5);
 }
 
 #get-joke:active {
   box-shadow: inset 1px 1px 2px 0 rgba(0, 0, 0, 0.5);
-  color: black;
 }
 
 #display {
   padding: 0.5rem 0.75rem;
-  color: white;
+  color: var(--textCollor);
   overflow: auto;
   font-weight: 600;
   border-radius: 10px;
   width: 21rem;
   height: 9rem;
+  background: rgba(0, 0, 0, 0.2);
   display: flex;
   align-items: center;
   justify-content: center;
   box-shadow: inset 1px 1px 2px 0 rgba(255, 255, 255, 0.5),
     2px 2px 4px 0 rgba(0, 0, 0, 0.5);
   text-align: center;
+  border: solid 1px white;
 }
 
-/* .boll {
+.boll {
   width: 100%;
   height: 100%;
-  background-image: radial-gradient(circle at left top, var(--small)),
-    radial-gradient(circle at bottom right, var(--small)),
-    radial-gradient(circle at bottom left, var(--small)),
-    radial-gradient(circle at top right, var(--small)),
-    radial-gradient(circle at center, var(--big));
-  background-size: calc(100% / 16) calc(100% / 9);
+  background-image: radial-gradient(
+      circle at left top,
+      rgb(from var(--ballCollor1) r g b) 18%,
+      var(--smalltransparant)
+    ),
+    radial-gradient(
+      circle at bottom right,
+      rgb(from var(--ballCollor1) r g b) 18%,
+      var(--smalltransparant)
+    ),
+    radial-gradient(
+      circle at bottom left,
+      rgb(from var(--ballCollor1) r g b) 18%,
+      var(--smalltransparant)
+    ),
+    radial-gradient(
+      circle at top right,
+      rgb(from var(--ballCollor1) r g b) 18%,
+      var(--smalltransparant)
+    ),
+    radial-gradient(
+      circle at center,
+      rgb(from var(--ballCollor2) r g b) 36%,
+      var(--bigtransparant)
+    );
+  background-size: calc(100% / 8) calc(100% / 4.5);
   background-repeat: repeat;
-} */
+}
